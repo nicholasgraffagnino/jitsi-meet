@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { translate } from '../../base/translation';
+
 /**
  * The list of all browsers supported by the application.
  */
@@ -38,7 +40,16 @@ const SUPPORTED_BROWSERS = [
  *
  * @class UnsupportedDesktopBrowser
  */
-export default class UnsupportedDesktopBrowser extends Component {
+class UnsupportedDesktopBrowser extends Component {
+    /**
+     * UnsupportedDesktopBrowser component's property types.
+     *
+     * @static
+     */
+    static propTypes = {
+        t: React.PropTypes.func
+    }
+
     /**
      * Renders the component.
      *
@@ -46,13 +57,14 @@ export default class UnsupportedDesktopBrowser extends Component {
      */
     render() {
         const ns = 'unsupported-desktop-browser';
+        const { t } = this.props;
 
         return (
             <div className = { `${ns}-wrapper` }>
                 <div className = { ns }>
                     <div className = { `${ns}__content` }>
                         <h2 className = { `${ns}__title` }>
-                            This application is currently only supported by
+                            { t('unsupportedPage.onlySupportedBy') }
                         </h2>
                         {
                             this._renderSupportedBrowsers()
@@ -74,6 +86,7 @@ export default class UnsupportedDesktopBrowser extends Component {
     _renderSupportedBrowser(browser) {
         const { link, name, plugin, title } = browser;
         const ns = 'supported-browser';
+        const { t } = this.props;
 
         // Browsers which do not support WebRTC could support the application
         // with the Temasys plugin.
@@ -100,7 +113,9 @@ export default class UnsupportedDesktopBrowser extends Component {
                     <a
                         className = { `${ns}__link` }
                         href = { link }>
-                        <div className = { `${ns}__button` }>DOWNLOAD</div>
+                        <div className = { `${ns}__button` }>
+                            { t('unsupportedPage.download') }
+                        </div>
                     </a>
                 </div>
             </div>
@@ -123,3 +138,5 @@ export default class UnsupportedDesktopBrowser extends Component {
         );
     }
 }
+
+export default translate(UnsupportedDesktopBrowser);

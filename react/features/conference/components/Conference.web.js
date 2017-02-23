@@ -1,4 +1,4 @@
-/* global $, APP */
+/* global APP */
 
 import React, { Component } from 'react';
 import { connect as reactReduxConnect } from 'react-redux';
@@ -43,9 +43,6 @@ class Conference extends Component {
      */
     componentDidMount() {
         APP.UI.start();
-
-        // XXX Temporary solution until we add React translation.
-        APP.translation.translateElement($('#videoconference_page'));
 
         this.props.dispatch(connect());
     }
