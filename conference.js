@@ -537,12 +537,10 @@ export default {
             };
         }
 
-        const jitsiMeetConferenceConfig = Object.assign({
-            enableAnalyticsLogging: analytics.isEnabled()
-        }, config);
-
-        return JitsiMeetJS.init(jitsiMeetConferenceConfig)
-            .then(() => {
+        return JitsiMeetJS.init(
+            Object.assign(
+                {enableAnalyticsLogging: analytics.isEnabled()}, config)
+            ).then(() => {
                 analytics.init();
                 return createInitialLocalTracksAndConnect(options.roomName);
             }).then(([tracks, con]) => {
@@ -582,12 +580,7 @@ export default {
                     (new ConferenceConnector(
                         resolve, reject, this.invite)).connect();
                 });
-            })
-            .catch(reason => {
-                logger.error(reason.message);
-
-                return Promise.reject(reason);
-            });
+        });
     },
     /**
      * Check if id is id of the local user.

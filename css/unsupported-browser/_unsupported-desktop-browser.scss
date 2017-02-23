@@ -12,11 +12,11 @@
     }
 
     &__description {
-        margin-top: 16px;
         color: $unsupportedDesktopBrowserTextColor;
-        font-weight: 300;
         font-size: $unsupportedDesktopBrowserTextFontSize;
+        font-weight: 300;
         letter-spacing: 1px;
+        margin-top: 16px;
 
         &_small {
             @extend .unsupported-desktop-browser__description;

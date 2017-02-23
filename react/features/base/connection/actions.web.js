@@ -10,8 +10,8 @@ import { appNavigate } from '../../app';
 import { setUnsupportedBrowser } from '../../unsupported-browser';
 
 declare var APP: Object;
-declare var JitsiMeetJS: Object;
 declare var config: Object;
+declare var JitsiMeetJS: Object;
 
 const JitsiConferenceEvents = JitsiMeetJS.events.conference;
 const logger = require('jitsi-meet-logger').getLogger(__filename);

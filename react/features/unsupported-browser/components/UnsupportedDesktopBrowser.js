@@ -4,9 +4,8 @@ import React, { Component } from 'react';
 
 import { Platform } from '../../base/react';
 
-import HideNotificationBarStyle from './HideNotificationBarStyle';
-
 import BROWSER_LINKS from './browserLinks';
+import HideNotificationBarStyle from './HideNotificationBarStyle';
 
 /**
  * Describes styles namespace for this component.

@@ -30,7 +30,6 @@ const _RULES = [
      * WebRTC support on Android).
      *
      * @param {Object} state - Redux state of the app.
-     *
      * @returns {UnsupportedMobileBrowser|void} If the rule is satisfied then
      * we should intercept existing component by UnsupportedMobileBrowser.
      */
@@ -65,8 +64,9 @@ const _RULES = [
  * @returns {ReactElement} If any of rules is satisfied returns intercepted
  * component.
  */
-export function interceptComponent(stateOrGetState: Object,
-                                   component: ReactElement<*>) {
+export function interceptComponent(
+        stateOrGetState: Object,
+        component: ReactElement<*>) {
     let result;
     const state
         = typeof stateOrGetState === 'function'
